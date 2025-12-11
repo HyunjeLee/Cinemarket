@@ -69,6 +69,11 @@ class _GoodsItemState extends State<GoodsItem> {
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Colors.grey,
+                      );
+                    },
                   ),
                 ),
                 IconButton(
