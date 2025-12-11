@@ -3,6 +3,7 @@ import 'package:cinemarket/features/favorite/viewmodel/favorite_viewmodel.dart';
 import 'package:cinemarket/widgets/common_gridview.dart';
 import 'package:cinemarket/core/constants/enums/item_type.dart';
 import 'package:cinemarket/widgets/common_tab_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cinemarket/features/auth/viewmodel/auth_provider.dart';
@@ -53,7 +54,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return CommonTabView(
+    final content = CommonTabView(
       tabTitles: _tabTitles,
       tabViews: [
         RefreshIndicator(
@@ -99,5 +100,14 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         ),
       ],
     );
+
+    return kIsWeb
+        ? Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(),
+              child: content,
+            ),
+          )
+        : content;
   }
 }

@@ -5,6 +5,7 @@ import 'package:cinemarket/features/goods/viewmodel/goods_all_viewmodel.dart';
 import 'package:cinemarket/features/home/model/tmdb_movie.dart';
 import 'package:cinemarket/widgets/goods_item.dart';
 import 'package:cinemarket/widgets/movie_item.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -53,7 +54,7 @@ class CommonGridview<T> extends StatelessWidget {
             physics: isInScrollView ? const NeverScrollableScrollPhysics() : null,
             itemCount: items.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+              crossAxisCount: kIsWeb ? 8 : 2,
               childAspectRatio: aspectRatio,
               crossAxisSpacing: crossAxisSpacing,
               mainAxisSpacing: mainAxisSpacing,

@@ -1,5 +1,6 @@
 import 'package:cinemarket/features/movies/model/cast_member.dart';
 import 'package:cinemarket/features/movies/widgets/cast_item.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CastGridView extends StatelessWidget {
@@ -12,8 +13,8 @@ class CastGridView extends StatelessWidget {
     return GridView.builder(
       padding: const EdgeInsets.all(8),
       itemCount: castList.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: kIsWeb ? 8 : 2,
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
         childAspectRatio: 0.7,

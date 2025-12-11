@@ -1,4 +1,5 @@
 import 'package:cinemarket/core/theme/app_colors.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 typedef OnTabSelected = void Function(int index);
@@ -21,6 +22,9 @@ class BottomNavBar extends StatelessWidget {
       currentIndex: currentIndex,
       selectedItemColor: Color(0xffD32F2F),
       unselectedItemColor: Colors.white,
+      selectedFontSize: kIsWeb ? 12 : 14,
+      unselectedFontSize: kIsWeb ? 10 : 12,
+      iconSize: kIsWeb ? 20 : 24,
       onTap: onTabSelected,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: '찜'),
