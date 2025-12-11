@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "http://git.hansul.kr:3003/api/:path*"
+    }
+  ]
+}
